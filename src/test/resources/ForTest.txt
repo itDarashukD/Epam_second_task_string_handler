@@ -1,0 +1,7 @@
+	Within an expression, it is possible to mix two or more different types of data as long as they are compatible with each other.
+	You can mix short and long within an expression.
+
+
+
+
+
