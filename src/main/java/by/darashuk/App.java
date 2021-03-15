@@ -15,10 +15,7 @@ public class App {
     public static void main(String[] args) {
         Text text = new Text("src/main/resources/MainText.txt");
         ITextHandler textHandler = new TextHandler();
-
         System.out.println(textHandler.sortByAlphabet(text));
         System.out.println(textHandler.removeSomeWords(text));
-
-
     }
 }

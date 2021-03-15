@@ -6,10 +6,13 @@ public interface ICompositeText {
 
     String returnAsString();
 
-    void addElementToList(ICompositeText element);
+    default void addElementToList(ICompositeText element) {
+    }
 
-    void removeElementFromList(ICompositeText element);
+    default void removeElementFromList(ICompositeText element) {
+    }
 
-    ArrayList<ICompositeText> getListOfElements();
-
+    default ArrayList<ICompositeText> getListOfElements() {
+        return null;
+    }
 }

@@ -28,10 +28,9 @@ public class Sentence implements ICompositeText {
 	@Override
 	public String returnAsString() {
 		StringBuilder sentence = new StringBuilder();
-		for (ICompositeText c : listPartsOfSentence) {
-			sentence.append(c.returnAsString());
+		for (ICompositeText element : listPartsOfSentence) {
+			sentence.append(element.returnAsString());
 		}
-		return String.valueOf(sentence);
+		return sentence.toString();
 	}
-
 }

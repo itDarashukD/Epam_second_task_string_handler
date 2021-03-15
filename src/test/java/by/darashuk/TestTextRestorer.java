@@ -14,20 +14,16 @@ public class TestTextRestorer {
 
     @BeforeMethod
     public void beforeMethod() {
-
 	InitDataForTests initData = new InitDataForTests();
 	expectedTextRestoredString = initData.getTextForParsingString();
-
     }
 
     @Test
     public void testTextRestorer() {
-
         String actualTextRestoredString = textRestorer.textRestoring();
         System.out.println(actualTextRestoredString + "\n");
 
         Assert.assertEquals(actualTextRestoredString, expectedTextRestoredString);
         System.out.println(expectedTextRestoredString);
     }
-
 }

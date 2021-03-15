@@ -18,7 +18,6 @@ public class Text implements ICompositeText {
     public Text(String fileName) {
         tempText = TextReader.getInstance().readFromFile(fileName);
         this.listOfParagraphs = textParser.textParsing(tempText);
-
     }
 
     @Override
@@ -33,16 +32,15 @@ public class Text implements ICompositeText {
 
     @Override
     public String returnAsString() {
-        StringBuilder paragraph = new StringBuilder();
+        StringBuilder text = new StringBuilder();
         for (ICompositeText elements : listOfParagraphs) {
-            paragraph.append(elements.returnAsString());
+            text.append(elements.returnAsString());
         }
-        return String.valueOf(paragraph);
+        return text.toString();
     }
 
     @Override
     public void removeElementFromList(ICompositeText paragraph) {
         listOfParagraphs.remove(paragraph);
     }
-
 }

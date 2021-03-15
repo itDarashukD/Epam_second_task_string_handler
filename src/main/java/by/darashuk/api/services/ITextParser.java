@@ -7,5 +7,4 @@ import java.util.ArrayList;
 public interface ITextParser {
 
     public ArrayList<ICompositeText> textParsing(String parseString);
-
 }

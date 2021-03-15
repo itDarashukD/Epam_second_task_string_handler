@@ -7,5 +7,4 @@ public interface ITextHandler {
     String removeSomeWords(Text text);
 
     String sortByAlphabet(Text text);
-
 }

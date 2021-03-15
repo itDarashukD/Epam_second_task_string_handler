@@ -2,9 +2,7 @@ package by.darashuk.entity;
 
 import by.darashuk.api.composite.ICompositeText;
 import lombok.Data;
-
 import java.util.ArrayList;
-
 
 @Data
 public class Paragraph implements ICompositeText {
@@ -18,13 +16,11 @@ public class Paragraph implements ICompositeText {
 
 	@Override
 	public String returnAsString() {
-
 		StringBuilder paragraph = new StringBuilder();
-
 		for (ICompositeText elements : listOfSentences) {
 			paragraph.append(elements.returnAsString());
 		}
-		return String.valueOf(paragraph);
+		return paragraph.toString();
 	}
 
 	@Override
@@ -36,5 +32,4 @@ public class Paragraph implements ICompositeText {
 	public void removeElementFromList(ICompositeText sentence) {
 		listOfSentences.remove(sentence);
 	}
-
 }

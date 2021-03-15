@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 
 @Data
-@AllArgsConstructor
-
 public class MarkPunctuation implements ICompositeText {
 
     private String charPunctuation;
@@ -19,22 +17,7 @@ public class MarkPunctuation implements ICompositeText {
         return charPunctuation;
     }
 
-
-    @Override
-    public void removeElementFromList(ICompositeText sentence) {
-
+    public MarkPunctuation(String charPunctuation) {
+        this.charPunctuation = charPunctuation;
     }
-
-    @Override
-    public ArrayList<ICompositeText> getListOfElements() {
-
-        return null;
-    }
-
-    @Override
-    public void addElementToList(ICompositeText element) {
-
-    }
-
-
 }

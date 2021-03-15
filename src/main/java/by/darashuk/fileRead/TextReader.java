@@ -24,22 +24,16 @@ public class TextReader {
 	}
 
 	public String readFromFile(String fileName) {
-
 		logger.info("IN readFromFile() : File are reading");
-
 		StringBuilder stringBuilder = new StringBuilder();
 
 		try (Scanner in = new Scanner(new File(fileName), StandardCharsets.UTF_8)) {
-
 			while (in.hasNext()) {
-
 				stringBuilder.append(in.nextLine()).append("\n");
 			}
 		} catch (IOException e) {
 			logger.error("IN readFromFile() : File " + fileName + " not found!!!");
 		}
-
 		return stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
 	}
-
 }

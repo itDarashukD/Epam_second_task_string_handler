@@ -12,27 +12,21 @@ public class TestSortByAlphabet {
 
     private Text testedText;
     private String expectedSortByAlphabetString;
-
     private final ITextHandler textHandler = new TextHandler();
 
     @BeforeClass
     public void beforeClass() {
-
         testedText = new Text("src/test/resources/ForTest.txt");
         InitDataForTests initData = new InitDataForTests();
-
         expectedSortByAlphabetString = initData.getStringSortingByAlphabetString();
-
     }
 
     @Test
     public void testSortByAlphabet() {
-
         String actualSortByAlphabetString = textHandler.sortByAlphabet(testedText);
         System.out.println(actualSortByAlphabetString + "\n");
 
         Assert.assertEquals(actualSortByAlphabetString, expectedSortByAlphabetString);
         System.out.println(expectedSortByAlphabetString);
     }
-
 }

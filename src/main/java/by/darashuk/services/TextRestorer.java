@@ -20,48 +20,49 @@ public class TextRestorer implements ITextRestorer {
 
 		StringBuilder textRestore = new StringBuilder();
 		ICompositeText compositeText = new Text(TESTED_TEXT);
-
 		ArrayList<ICompositeText> listParagraphs = compositeText.getListOfElements();
 
-		// for all Paragraphs
-		for (int par = 0; par < listParagraphs.size(); par++) {
-			textRestore.append("\t");
-			// for each sentences from paragraph[s]
-			for (int sent = 0; sent < listParagraphs.get(par).getListOfElements().size(); sent++) {
+		if (listParagraphs == null || listParagraphs.isEmpty()) {
+			logger.info("IN textRestoring() : We got a problem : listParagraphs == null || listParagraphs.isEmpty() !");
+		} else {
+			// for all Paragraphs
+			for (int par = 0; par < listParagraphs.size(); par++) {
+				textRestore.append("\t");
+				// for each sentences from paragraph[s]
+				for (int sent = 0; sent < listParagraphs.get(par).getListOfElements().size(); sent++) {
 
-				if (sent != 0 && sent < listParagraphs.get(par).getListOfElements().size()) {
-					textRestore.append(' ');
-				}
-				// for each words or marks punctuation
-				for (int i = 0; i < listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-						.size(); i++) {
+					if (sent != 0 && sent < listParagraphs.get(par).getListOfElements().size()) {
+						textRestore.append(' ');
+					}
+					// for each words or marks punctuation
+					for (int i = 0; i < listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+							.size(); i++) {
 
-					if (listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-							.get(i) instanceof Word) {
+						if (listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+								.get(i) instanceof Word) {
 
-						if (i != 0 && i != listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-								.size()) {
-							textRestore.append(' ');
+							if (i != 0 && i != listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+									.size()) {
+								textRestore.append(' ');
+							}
+							textRestore.append(listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+									.get(i).returnAsString());
 						}
-						textRestore.append(listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-								.get(i).returnAsString());
-					}
+						if (listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+								.get(i) instanceof MarkPunctuation) {
 
-					if (listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-							.get(i) instanceof MarkPunctuation) {
-
-						textRestore.append(listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
-								.get(i).returnAsString());
+							textRestore.append(listParagraphs.get(par).getListOfElements().get(sent).getListOfElements()
+									.get(i).returnAsString());
+						}
 					}
 				}
+				if (par < listParagraphs.size() - 1) {
+					textRestore.append("\n");
+				}
 			}
-			if (par < listParagraphs.size() - 1) {
-				textRestore.append("\n");
-			}
-
 		}
 		return textRestore.toString();
 	}
-
 }
+
 
