@@ -21,7 +21,7 @@ public class TestRemovingSomeWord {
     }
 
     @Test
-    public void testSortByAlphabet() {
+    public void testRemoveSomeWord() {
         String actualSortByAlphabetString = textHandler.removeSomeWords(testedText);
         System.out.println(actualSortByAlphabetString);
 
